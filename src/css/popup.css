@@ -8,3 +8,7 @@
 .text-center {
 	text-align: center;
 }
+
+#copy-success {
+	color: #006E2E;
+}
