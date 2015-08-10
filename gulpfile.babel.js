@@ -78,8 +78,13 @@ gulp.task('copy-icons', () => {
   gulp.src('./src/icon*.png').pipe(gulp.dest('./release/build/'));
 })
 
+gulp.task('copy-gitkeep', () => {
+  gulp.src('./src/.gitkeep').pipe(gulp.dest('./release/build/'));
+})
+
+
 gulp.task('production', (done) => {
-  runSequence('webpack-production', 'extension', 'copy-icons', done)
+  runSequence('webpack-production', 'extension', 'copy-icons', 'copy-gitkeep', done)
 })
 
 gulp.task('run', (done) => {
