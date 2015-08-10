@@ -3,3 +3,4 @@ build/
 !release/build/.gitkeep
 release/build/*
 npm-debug.log
+.DS_Store

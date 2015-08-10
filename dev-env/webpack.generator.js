@@ -6,7 +6,7 @@ import _ from 'lodash';
 import * as Remove from './lib/remove'
 
 var styleLoaders = {
-  'css': '',
+  'css': '!css-loader',
   'less': '!less-loader',
   'scss|sass': '!sass-loader',
   'styl': '!stylus-loader'

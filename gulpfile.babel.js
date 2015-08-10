@@ -82,9 +82,20 @@ gulp.task('copy-gitkeep', () => {
   gulp.src('./src/.gitkeep').pipe(gulp.dest('./release/build/'));
 })
 
+gulp.task('copy-css', () => {
+  gulp.src('./src/css/*').pipe(gulp.dest('./release/build/css/'));
+})
+
+
+gulp.task('copy-vendor', () => {
+  gulp.src('./src/vendor/**').pipe(gulp.dest('./release/build/vendor/'));
+})
+
+
+
 
 gulp.task('production', (done) => {
-  runSequence('webpack-production', 'extension', 'copy-icons', 'copy-gitkeep', done)
+  runSequence('webpack-production', 'extension', 'copy-icons', 'copy-gitkeep', 'copy-css', 'copy-vendor', done)
 })
 
 gulp.task('run', (done) => {
