@@ -9,7 +9,7 @@ import makeManifest from './dev-env/lib/make_manifest'
 import overrideHotUpdater from './dev-env/lib/override_hot_updater'
 import { exec } from 'child_process'
 import clc from 'cli-color';
-var gulpCopy = require('gulp-copy');
+import copy from 'gulp-copy';
 
 
 const args = yargs
@@ -74,9 +74,12 @@ gulp.task('extension', (done) => {
   }, 100)
 })
 
+gulp.task('copy-icons', () => {
+  gulp.src('./src/icon*.png').pipe(gulp.dest('./release/build/'));
+})
+
 gulp.task('production', (done) => {
-  runSequence('webpack-production', 'extension', done)
-  gulp.src('src/icons*.png').pipe(gulpCopy('release/build', {}));
+  runSequence('webpack-production', 'extension', 'copy-icons', done)
 })
 
 gulp.task('run', (done) => {

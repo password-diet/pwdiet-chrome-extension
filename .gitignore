@@ -1,4 +1,5 @@
 node_modules/
 build/
-release/
+!release/build/.gitkeep
+release/build/*
 npm-debug.log
