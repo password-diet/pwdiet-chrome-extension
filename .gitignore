@@ -2,5 +2,6 @@ node_modules/
 build/
 !release/build/.gitkeep
 release/build/*
+release/*
 npm-debug.log
 .DS_Store
